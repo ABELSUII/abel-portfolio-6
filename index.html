@@ -11,11 +11,10 @@
 <body>  
   
     <div id="particles-js"></div>  
-    <div class="cursor-glow"></div>  
       
     <div id="loader">  
         <div class="loader-content">  
-            <h1 data-text="SYSTEM_INIT...">SYSTEM_INIT...</h1>  
+            <h1>SYSTEM_INIT...</h1>  
         </div>  
     </div>  
   
@@ -54,8 +53,7 @@
   
         <div class="home-visual">  
             <div class="image-stack">  
-                <img src="portfolio.jpg.jpg" alt="Abel Thomas Jacob" class="main-img">  
-                <div class="img-accent"></div>  
+                <img src="portfolio.jpg.jpg" alt="Abel" class="main-img">  
                 <div class="scan-line"></div>  
             </div>  
         </div>  
@@ -63,7 +61,6 @@
   
     <section class="skills" id="skills">  
         <div class="section-title">  
-            <span class="subtitle">Neural Weights</span>  
             <h2>Technical <span>Gauges</span></h2>  
         </div>  
   
@@ -103,13 +100,80 @@
         </div>  
         <div class="project-grid">  
             <div class="pro-card">  
-                <div class="pro-content">  
-                    <i class="fa-solid fa-folder-open"></i>  
-                    <h4>HTML Portfolio</h4>  
-                    <p>Static web environment optimized for zero-latency and semantic data structure.</p>  
-                </div>  
+                <i class="fa-solid fa-folder-open"></i>  
+                <h4>HTML Portfolio</h4>  
+                <p>Static web environment optimized for zero-latency.</p>  
             </div>  
             <div class="pro-card">  
-                <div class="pro-content">  
-                    <i class="fa-solid fa-display"></i>  
-                    <h4>Responsive Portfolio</h4>
+                <i class="fa-solid fa-display"></i>  
+                <h4>Responsive Portfolio</h4>  
+                <p>Cross-platform UI deployment utilizing fluid grids.</p>  
+            </div>  
+            <div class="pro-card">  
+                <i class="fa-solid fa-microchip"></i>  
+                <h4>AI Diagnostic Card</h4>  
+                <p>Prototype interface for visualizing ML outputs.</p>  
+            </div>  
+        </div>  
+    </section>  
+  
+    <section class="contact" id="contact">  
+        <div class="section-title"><h2>Interface <span>Signal</span></h2></div>  
+        <form action="https://formspree.io/f/abelaarakalabuu@gmail.com" method="POST" class="contact-form">  
+            <input type="text" name="name" placeholder="Access Identity (Full Name)" required>  
+            <input type="email" name="email" placeholder="Return Pathway (Your Email)" required>  
+            <textarea name="message" placeholder="Input Message Data..." rows="5" required></textarea>  
+            <button type="submit" class="btn-main">Transmit Data</button>  
+        </form>  
+    </section>  
+  
+    <footer>  
+        <p>&copy; 2026 Abel Thomas Jacob | Optimized via Kaizen.</p>     
+    </footer>  
+  
+    <script src="https://unpkg.com/scrollreveal"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>     
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>  
+  
+    <script>
+        // Typed effect
+        new Typed(".typed-element", { strings: ["AIML Student.", "Web Designer.", "Gamer.", "Kaizen."], typeSpeed: 50, backSpeed: 30, loop: true });  
+  
+        // Particles
+        particlesJS("particles-js", { particles: { number: { value: 60 }, color: { value: "#00ffff" }, opacity: { value: 0.2 }, size: { value: 2 }, line_linked: { enable: true, color: "#00ffff", opacity: 0.15 } } });  
+  
+        // Scroll Progress
+        let calcScrollValue = () => { 
+            let scrollProgress = document.getElementById("progress"); 
+            let pos = document.documentElement.scrollTop; 
+            let calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight; 
+            let scrollValue = Math.round((pos * 100) / calcHeight); 
+            if (scrollProgress) {
+                scrollProgress.style.display = pos > 100 ? "grid" : "none"; 
+                scrollProgress.style.background = `conic-gradient(var(--accent) ${scrollValue}%, var(--border) ${scrollValue}%)`; 
+            }
+        };  
+  
+        document.getElementById("progress").addEventListener("click", () => { 
+            window.scrollTo({ top: 0, behavior: 'smooth' }); 
+        });  
+  
+        // LOADER FIX: Force hide after 2 seconds regardless of image loading
+        const hideLoader = () => {
+            const loader = document.getElementById("loader");
+            if(loader) {
+                loader.style.opacity = "0";
+                setTimeout(() => { loader.style.display = "none"; }, 800);
+            }
+        };
+
+        window.onscroll = calcScrollValue; 
+        window.addEventListener('load', hideLoader);
+        setTimeout(hideLoader, 2000); // Safety timeout
+
+        // Reveal
+        const sr = ScrollReveal({ origin: 'bottom', distance: '40px', duration: 1000, delay: 200 }); 
+        sr.reveal('.home-content, .section-title, .metric-card, .pro-card');  
+    </script>  
+</body>  
+</html>
