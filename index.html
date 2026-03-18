@@ -20,7 +20,7 @@
         <div class="success-card">
             <i class="fa-solid fa-circle-check"></i>
             <h2>SIGNAL_RECEIVED</h2>
-            <p style="color: var(--text-dim); margin-bottom: 2rem;">Your transmission was successful.</p>
+            <p style="color: var(--text-dim); margin-bottom: 2rem;">Transmission successful. Architect has been notified.</p>
             <button onclick="document.getElementById('success-overlay').style.display='none'" class="btn-main">Back to Terminal</button>
         </div>
     </div>
@@ -33,57 +33,28 @@
         <a href="#" class="logo"><span>ATJ</span></a>  
         <nav class="navbar">  
             <a href="#home">Terminal</a>  
-            <a href="#skills">Gauges</a>  
-            <a href="#projects">Deployments</a>  
             <a href="#contact">Signal</a>  
         </nav>  
     </header>  
   
     <section class="home" id="home">  
         <div class="home-content">  
-            <span class="badge">AIML ENGINEERING STUDENT</span>  
             <h1>Abel Thomas <span>Jacob</span></h1>  
-            <h3>Hi, I'm a <span class="typed-element"></span></h3>  
-            <p>Based at <strong>Sree Buddha College</strong>. Specializing in AIML logic and high-performance interfaces.</p>  
+            <p>AIML Engineering Student at <strong>Sree Buddha College</strong>. Operating under the <b>Kaizen</b> philosophy for iterative system evolution.</p>  
             <div class="cta-group">  
-                <a href="#projects" class="btn-main">View Builds</a>  
-                <a href="#contact" class="btn-outline">Compute Signal</a>  
+                <a href="#contact" class="btn-main">Compute Signal</a>  
             </div>  
         </div>  
-  
         <div class="home-visual">  
-            <div class="image-stack">  
-                <img src="portfolio.jpg.jpg" alt="Abel" class="main-img">  
-                <div class="scan-line"></div>  
-            </div>  
-        </div>  
-    </section>  
-  
-    <section class="skills" id="skills">  
-        <div class="section-title"><h2>Technical <span>Gauges</span></h2></div>  
-        <div class="skills-wrapper">  
-            <div class="metric-card">  
-                <div class="circle-box">  
-                    <svg><circle cx="75" cy="75" r="70"></circle><circle cx="75" cy="75" r="70" style="--percent: 95"></circle></svg> 
-                    <div class="number">95<span>%</span></div>  
-                </div>  
-                <h3>HTML & CSS</h3>  
-            </div>  
-            <div class="metric-card">  
-                <div class="circle-box">  
-                    <svg><circle cx="75" cy="75" r="70"></circle><circle cx="75" cy="75" r="70" style="--percent: 88"></circle></svg> 
-                    <div class="number">88<span>%</span></div>  
-                </div>  
-                <h3>AIML Logic</h3>  
-            </div>  
+            <img src="portfolio.jpg.jpg" alt="Abel" class="main-img">  
         </div>  
     </section>  
   
     <section class="contact" id="contact">  
-        <div class="section-title"><h2>Interface <span>Signal</span></h2></div>  
+        <div style="text-align: center; margin-bottom: 4rem;"><h2>Interface <span>Signal</span></h2></div>  
         <form action="https://formspree.io/f/abelaarakalabuu@gmail.com" method="POST" class="contact-form" id="contact-form">  
-            <input type="text" name="name" placeholder="Access Identity" required>  
-            <input type="email" name="email" placeholder="Return Pathway" required>  
+            <input type="text" name="name" placeholder="Access Identity (Name)" required>  
+            <input type="email" name="email" placeholder="Return Pathway (Email)" required>  
             <textarea name="message" placeholder="Input Message Data..." rows="5" required></textarea>
             
             <input type="hidden" name="_next" value="https://abelthomasjacob.github.io/portfolio/?success=true">
@@ -95,47 +66,33 @@
   
     <footer><p>&copy; 2026 Abel Thomas Jacob | Optimized via Kaizen.</p></footer>  
   
-    <script src="https://unpkg.com/scrollreveal"></script>  
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>     
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>  
-  
     <script>
-        // Check for success URL parameter
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.has('success')) {
+        // Check for success parameter in URL to show overlay
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('success')) {
             document.getElementById('success-overlay').style.display = 'grid';
         }
 
-        new Typed(".typed-element", { strings: ["AIML Student.", "Web Designer.", "Gamer.", "Kaizen."], typeSpeed: 50, backSpeed: 30, loop: true });  
-  
-        particlesJS("particles-js", { particles: { number: { value: 60 }, color: { value: "#00ffff" }, opacity: { value: 0.2 }, size: { value: 2 }, line_linked: { enable: true, color: "#00ffff", opacity: 0.15 } } });  
-  
-        let calcScrollValue = () => { 
-            let scrollProgress = document.getElementById("progress"); 
-            let pos = document.documentElement.scrollTop; 
-            let calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight; 
-            let scrollValue = Math.round((pos * 100) / calcHeight); 
-            if (scrollProgress) {
-                scrollProgress.style.display = pos > 100 ? "grid" : "none"; 
-                scrollProgress.style.background = `conic-gradient(var(--accent) ${scrollValue}%, var(--border) ${scrollValue}%)`; 
-            }
-        };  
-  
-        document.getElementById("progress").onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });  
-  
-        const hideLoader = () => {
-            const loader = document.getElementById("loader");
-            if(loader) {
-                loader.style.opacity = "0";
-                setTimeout(() => { loader.style.display = "none"; }, 800);
-            }
+        // Particle background init
+        particlesJS("particles-js", { particles: { number: { value: 50 }, color: { value: "#00ffff" }, opacity: { value: 0.2 }, size: { value: 2 }, line_linked: { enable: true, color: "#00ffff", opacity: 0.1 } } });
+
+        // Rocket logic
+        window.onscroll = () => {
+            let prog = document.getElementById("progress");
+            let pos = document.documentElement.scrollTop;
+            let val = Math.round((pos * 100) / (document.documentElement.scrollHeight - document.documentElement.clientHeight));
+            prog.style.display = pos > 100 ? "grid" : "none";
+            prog.style.background = `conic-gradient(var(--accent) ${val}%, var(--border) ${val}%)`;
         };
+        document.getElementById("progress").onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-        window.onscroll = calcScrollValue; 
-        window.onload = hideLoader;
-        setTimeout(hideLoader, 2000); 
-
-        ScrollReveal().reveal('.home-content, .section-title, .metric-card', { origin: 'bottom', distance: '40px', duration: 1000 });  
+        // Hide Loader
+        window.onload = () => {
+            setTimeout(() => { document.getElementById("loader").style.opacity = "0"; 
+            setTimeout(() => { document.getElementById("loader").style.display = "none"; }, 800);
+            }, 1000);
+        };
     </script>  
 </body>  
 </html>
