@@ -4,7 +4,9 @@
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abel Thomas Jacob | AI System Architect</title>  
+    
     <link rel="stylesheet" href="style.css">  
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fontawesome/6.5.2/css/all.min.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">  
 </head>  
@@ -20,13 +22,13 @@
         <div class="success-card">
             <i class="fa-solid fa-circle-check"></i>
             <h2>SIGNAL_RECEIVED</h2>
-            <p style="color: var(--text-dim); margin-bottom: 2rem;">Transmission successful. Architect has been notified.</p>
+            <p>Transmission successful. Architect notified.</p>
             <button onclick="document.getElementById('success-overlay').style.display='none'" class="btn-main">Back to Terminal</button>
         </div>
     </div>
   
     <div id="progress">  
-       <span id="progress-value"><i class="fa-solid fa-rocket" style="transform: rotate(-45deg);"></i></span>
+       <span id="progress-value"><i class="fa-solid fa-rocket"></i></span>
     </div>  
   
     <header>  
@@ -40,10 +42,8 @@
     <section class="home" id="home">  
         <div class="home-content">  
             <h1>Abel Thomas <span>Jacob</span></h1>  
-            <p>AIML Engineering Student at <strong>Sree Buddha College</strong>. Operating under the <b>Kaizen</b> philosophy for iterative system evolution.</p>  
-            <div class="cta-group">  
-                <a href="#contact" class="btn-main">Compute Signal</a>  
-            </div>  
+            <p>AIML Engineering Student | Sree Buddha College</p>  
+            <a href="#contact" class="btn-main">Compute Signal</a>  
         </div>  
         <div class="home-visual">  
             <img src="portfolio.jpg.jpg" alt="Abel" class="main-img">  
@@ -51,11 +51,11 @@
     </section>  
   
     <section class="contact" id="contact">  
-        <div style="text-align: center; margin-bottom: 4rem;"><h2>Interface <span>Signal</span></h2></div>  
-        <form action="https://formspree.io/f/abelaarakalabuu@gmail.com" method="POST" class="contact-form" id="contact-form">  
-            <input type="text" name="name" placeholder="Access Identity (Name)" required>  
-            <input type="email" name="email" placeholder="Return Pathway (Email)" required>  
-            <textarea name="message" placeholder="Input Message Data..." rows="5" required></textarea>
+        <div class="section-title"><h2>Interface <span>Signal</span></h2></div>  
+        <form action="https://formspree.io/f/abelaarakalabuu@gmail.com" method="POST" class="contact-form">  
+            <input type="text" name="name" placeholder="Name" required>  
+            <input type="email" name="email" placeholder="Email" required>  
+            <textarea name="message" placeholder="Message Data..." rows="5" required></textarea>
             
             <input type="hidden" name="_next" value="https://abelthomasjacob.github.io/portfolio/?success=true">
             <input type="hidden" name="_captcha" value="false">
@@ -68,13 +68,12 @@
   
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>  
     <script>
-        // Check for success parameter in URL to show overlay
-        const params = new URLSearchParams(window.location.search);
-        if (params.has('success')) {
+        // Check for success status in URL
+        if (new URLSearchParams(window.location.search).has('success')) {
             document.getElementById('success-overlay').style.display = 'grid';
         }
 
-        // Particle background init
+        // Particle Background
         particlesJS("particles-js", { particles: { number: { value: 50 }, color: { value: "#00ffff" }, opacity: { value: 0.2 }, size: { value: 2 }, line_linked: { enable: true, color: "#00ffff", opacity: 0.1 } } });
 
         // Rocket logic
@@ -87,11 +86,9 @@
         };
         document.getElementById("progress").onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-        // Hide Loader
+        // Remove Loader
         window.onload = () => {
-            setTimeout(() => { document.getElementById("loader").style.opacity = "0"; 
-            setTimeout(() => { document.getElementById("loader").style.display = "none"; }, 800);
-            }, 1000);
+            setTimeout(() => { document.getElementById("loader").style.display = "none"; }, 1000);
         };
     </script>  
 </body>  
