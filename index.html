@@ -13,10 +13,17 @@
     <div id="particles-js"></div>  
       
     <div id="loader">  
-        <div class="loader-content">  
-            <h1>SYSTEM_INIT...</h1>  
-        </div>  
+        <div class="loader-content"><h1>SYSTEM_INIT...</h1></div>  
     </div>  
+
+    <div id="success-overlay">
+        <div class="success-card">
+            <i class="fa-solid fa-circle-check"></i>
+            <h2>SIGNAL_RECEIVED</h2>
+            <p>Transmission successful. Architect has been notified.</p>
+            <button onclick="window.location.href='index.html'" class="btn-main">Return to Terminal</button>
+        </div>
+    </div>
   
     <div id="progress">  
        <span id="progress-value"><i class="fa-solid fa-rocket" style="transform: rotate(-45deg);"></i></span>
@@ -27,7 +34,6 @@
         <nav class="navbar">  
             <a href="#home">Terminal</a>  
             <a href="#skills">Gauges</a>  
-            <a href="#projects">Deployments</a>  
             <a href="#contact">Signal</a>  
         </nav>  
     </header>  
@@ -37,33 +43,18 @@
             <span class="badge">AIML ENGINEERING STUDENT</span>  
             <h1>Abel Thomas <span>Jacob</span></h1>  
             <h3>Hi, I'm a <span class="typed-element"></span></h3>  
-            <p>Based at <strong>Sree Buddha College</strong>. Specializing in AIML. Operating under the <b>Kaizen</b> philosophy for iterative system evolution.</p>  
-              
-            <div class="social-wrapper">  
-                <a href="https://www.linkedin.com" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>  
-                <a href="https://github.com" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>  
-                <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>  
-            </div>  
-              
+            <p>Based at <strong>Sree Buddha College</strong>. Specializing in AIML logic and high-performance interfaces.</p>  
             <div class="cta-group">  
-                <a href="#projects" class="btn-main">View Builds</a>  
-                <a href="#contact" class="btn-outline">Compute Signal</a>  
+                <a href="#contact" class="btn-main">Compute Signal</a>  
             </div>  
         </div>  
-  
         <div class="home-visual">  
-            <div class="image-stack">  
-                <img src="portfolio.jpg.jpg" alt="Abel" class="main-img">  
-                <div class="scan-line"></div>  
-            </div>  
+            <img src="portfolio.jpg.jpg" alt="Abel" class="main-img">  
         </div>  
     </section>  
   
     <section class="skills" id="skills">  
-        <div class="section-title">  
-            <h2>Technical <span>Gauges</span></h2>  
-        </div>  
-  
+        <div class="section-title"><h2>Technical <span>Gauges</span></h2></div>  
         <div class="skills-wrapper">  
             <div class="metric-card">  
                 <div class="circle-box">  
@@ -71,48 +62,13 @@
                     <div class="number">95<span>%</span></div>  
                 </div>  
                 <h3>HTML & CSS</h3>  
-                <p>Architecture & Motion</p>  
             </div>  
-  
             <div class="metric-card">  
                 <div class="circle-box">  
                     <svg><circle cx="75" cy="75" r="70"></circle><circle cx="75" cy="75" r="70" style="--percent: 88"></circle></svg> 
                     <div class="number">88<span>%</span></div>  
                 </div>  
                 <h3>AIML Logic</h3>  
-                <p>Models & Predictions</p>  
-            </div>  
-  
-            <div class="metric-card">  
-                <div class="circle-box">  
-                     <svg><circle cx="75" cy="75" r="70"></circle><circle cx="75" cy="75" r="70" style="--percent: 75"></circle></svg>  
-                    <div class="number">75<span>%</span></div>  
-                </div>  
-                <h3>JavaScript</h3>  
-                <p>Logic & Interactivity</p>  
-            </div>  
-        </div>  
-    </section>  
-  
-    <section class="projects" id="projects">  
-        <div class="section-title">  
-            <h2>Work <span>Deployments</span></h2>  
-        </div>  
-        <div class="project-grid">  
-            <div class="pro-card">  
-                <i class="fa-solid fa-folder-open"></i>  
-                <h4>HTML Portfolio</h4>  
-                <p>Static web environment optimized for zero-latency.</p>  
-            </div>  
-            <div class="pro-card">  
-                <i class="fa-solid fa-display"></i>  
-                <h4>Responsive Portfolio</h4>  
-                <p>Cross-platform UI deployment utilizing fluid grids.</p>  
-            </div>  
-            <div class="pro-card">  
-                <i class="fa-solid fa-microchip"></i>  
-                <h4>AI Diagnostic Card</h4>  
-                <p>Prototype interface for visualizing ML outputs.</p>  
             </div>  
         </div>  
     </section>  
@@ -120,64 +76,42 @@
     <section class="contact" id="contact">  
         <div class="section-title"><h2>Interface <span>Signal</span></h2></div>  
         <form action="https://formspree.io/f/abelaarakalabuu@gmail.com" method="POST" class="contact-form">  
-            <input type="text" name="name" placeholder="Access Identity (Full Name)" required>  
-            <input type="email" name="email" placeholder="Return Pathway (Your Email)" required>  
+            <input type="text" name="name" placeholder="Access Identity" required>  
+            <input type="email" name="email" placeholder="Return Pathway" required>  
             <textarea name="message" placeholder="Input Message Data..." rows="5" required></textarea>
             
-            <input type="hidden" name="_subject" value="New Portfolio Message!">
+            <input type="hidden" name="_next" value="https://abelthomasjacob.github.io/portfolio/?success=true">
             <input type="hidden" name="_captcha" value="false">
             
             <button type="submit" class="btn-main">Transmit Data</button>  
         </form>  
     </section>  
   
-    <footer>  
-        <p>&copy; 2026 Abel Thomas Jacob | Optimized via Kaizen.</p>     
-    </footer>  
+    <footer><p>&copy; 2026 Abel Thomas Jacob | Optimized via Kaizen.</p></footer>  
   
-    <script src="https://unpkg.com/scrollreveal"></script>  
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>     
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>  
-  
     <script>
-        // Typed effect
+        // Check for success status in URL
+        if (new URLSearchParams(window.location.search).has('success')) {
+            document.getElementById('success-overlay').style.display = 'grid';
+        }
+
         new Typed(".typed-element", { strings: ["AIML Student.", "Web Designer.", "Gamer.", "Kaizen."], typeSpeed: 50, backSpeed: 30, loop: true });  
+        particlesJS("particles-js", { particles: { number: { value: 50 }, color: { value: "#00ffff" }, opacity: { value: 0.2 }, size: { value: 2 }, line_linked: { enable: true, color: "#00ffff", opacity: 0.1 } } });  
   
-        // Particles initialization
-        particlesJS("particles-js", { particles: { number: { value: 60 }, color: { value: "#00ffff" }, opacity: { value: 0.2 }, size: { value: 2 }, line_linked: { enable: true, color: "#00ffff", opacity: 0.15 } } });  
-  
-        // Scroll Progress Logic
-        let calcScrollValue = () => { 
-            let scrollProgress = document.getElementById("progress"); 
-            let pos = document.documentElement.scrollTop; 
-            let calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight; 
-            let scrollValue = Math.round((pos * 100) / calcHeight); 
-            if (scrollProgress) {
-                scrollProgress.style.display = pos > 100 ? "grid" : "none"; 
-                scrollProgress.style.background = `conic-gradient(var(--accent) ${scrollValue}%, var(--border) ${scrollValue}%)`; 
-            }
-        };  
-  
-        document.getElementById("progress").addEventListener("click", () => { 
-            window.scrollTo({ top: 0, behavior: 'smooth' }); 
-        });  
-  
-        // LOADER Logic with Safety Timeout
-        const hideLoader = () => {
-            const loader = document.getElementById("loader");
-            if(loader) {
-                loader.style.opacity = "0";
-                setTimeout(() => { loader.style.display = "none"; }, 800);
-            }
+        window.onscroll = () => {
+            let prog = document.getElementById("progress");
+            let pos = document.documentElement.scrollTop;
+            let val = Math.round((pos * 100) / (document.documentElement.scrollHeight - document.documentElement.clientHeight));
+            prog.style.display = pos > 100 ? "grid" : "none";
+            prog.style.background = `conic-gradient(var(--accent) ${val}%, var(--border) ${val}%)`;
         };
+        document.getElementById("progress").onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-        window.onscroll = calcScrollValue; 
-        window.addEventListener('load', hideLoader);
-        setTimeout(hideLoader, 2000); 
-
-        // Reveal animations
-        const sr = ScrollReveal({ origin: 'bottom', distance: '40px', duration: 1000, delay: 200 }); 
-        sr.reveal('.home-content, .section-title, .metric-card, .pro-card');  
+        window.onload = () => {
+            setTimeout(() => { document.getElementById("loader").style.display = "none"; }, 1000);
+        };
     </script>  
 </body>  
 </html>
