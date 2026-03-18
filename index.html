@@ -19,7 +19,7 @@
     </div>  
   
     <div id="progress">  
-       <span id="progress-value"><i class="fa-solid fa-rocket"></i></span>
+       <span id="progress-value"><i class="fa-solid fa-rocket" style="transform: rotate(-45deg);"></i></span>
     </div>  
   
     <header>  
@@ -37,7 +37,7 @@
             <span class="badge">AIML ENGINEERING STUDENT</span>  
             <h1>Abel Thomas <span>Jacob</span></h1>  
             <h3>Hi, I'm a <span class="typed-element"></span></h3>  
-            <p>Based at <strong>Sree Buddha College</strong>. Specializing in AIML and high-performance interfaces. Operating under the <b>Kaizen</b> philosophy for iterative system evolution.</p>  
+            <p>Based at <strong>Sree Buddha College</strong>. Specializing in AIML. Operating under the <b>Kaizen</b> philosophy for iterative system evolution.</p>  
               
             <div class="social-wrapper">  
                 <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>  
@@ -139,10 +139,10 @@
         // Typed effect
         new Typed(".typed-element", { strings: ["AIML Student.", "Web Designer.", "Gamer.", "Kaizen."], typeSpeed: 50, backSpeed: 30, loop: true });  
   
-        // Particles
+        // Particles initialization
         particlesJS("particles-js", { particles: { number: { value: 60 }, color: { value: "#00ffff" }, opacity: { value: 0.2 }, size: { value: 2 }, line_linked: { enable: true, color: "#00ffff", opacity: 0.15 } } });  
   
-        // Scroll Progress
+        // Scroll Progress Logic
         let calcScrollValue = () => { 
             let scrollProgress = document.getElementById("progress"); 
             let pos = document.documentElement.scrollTop; 
@@ -158,7 +158,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' }); 
         });  
   
-        // LOADER FIX: Force hide after 2 seconds regardless of image loading
+        // LOADER Logic with Safety Timeout
         const hideLoader = () => {
             const loader = document.getElementById("loader");
             if(loader) {
@@ -169,9 +169,9 @@
 
         window.onscroll = calcScrollValue; 
         window.addEventListener('load', hideLoader);
-        setTimeout(hideLoader, 2000); // Safety timeout
+        setTimeout(hideLoader, 2000); // Loader automatically closes after 2s if image fails
 
-        // Reveal
+        // Reveal animations
         const sr = ScrollReveal({ origin: 'bottom', distance: '40px', duration: 1000, delay: 200 }); 
         sr.reveal('.home-content, .section-title, .metric-card, .pro-card');  
     </script>  
