@@ -12,16 +12,16 @@ body { background: var(--bg); color: var(--text); overflow-x: hidden; }
   
 #particles-js { position: fixed; inset: 0; z-index: -1; }  
   
-/* AI Loader */  
+/* Loader */  
 #loader { position: fixed; inset: 0; background: #000; z-index: 99999; display: flex; justify-content: center; align-items: center; transition: 0.8s ease; }  
 .loader-content h1 { font-size: 1.2rem; font-family: 'Space Grotesk'; color: var(--accent); letter-spacing: 10px; text-transform: uppercase; }  
 
 /* Success Overlay */
 #success-overlay { position: fixed; inset: 0; background: rgba(5, 5, 7, 0.95); z-index: 10000; display: none; place-items: center; text-align: center; backdrop-filter: blur(10px); }
-.success-card i { font-size: 4rem; color: var(--accent); margin-bottom: 1rem; }
-.success-card h2 { font-family: 'Space Grotesk'; letter-spacing: 3px; margin-bottom: 1rem; }
+.success-card i { font-size: 4rem; color: var(--accent); margin-bottom: 1.5rem; }
+.success-card h2 { font-family: 'Space Grotesk'; letter-spacing: 3px; margin-bottom: 1rem; color: #fff; }
   
-/* Rocket Scroll & Launch Animation */ 
+/* Rocket Scroll Button */ 
 #progress { position: fixed; bottom: 30px; right: 30px; height: 60px; width: 60px; display: none; place-items: center; border-radius: 50%; z-index: 2000; cursor: pointer; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); padding: 4px; }  
 #progress-value { display: grid; place-items: center; height: 100%; width: 100%; background: var(--bg); border-radius: 50%; color: var(--accent); font-size: 1.4rem; }  
 
@@ -33,11 +33,4 @@ body { background: var(--bg); color: var(--text); overflow-x: hidden; }
     25% { transform: translate(1px, -1px) rotate(-45deg); }
     50% { transform: translate(-1px, 1px) rotate(-45deg); }
     75% { transform: translate(1px, 1px) rotate(-45deg); }
-    100% { transform: translate(0, 0) rotate(-45deg); }
-}
-
-/* Header */  
-header { position: fixed; width: 100%; padding: 1.5rem 10%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; background: rgba(5, 5, 7, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border); }  
-.logo { font-family: 'Space Grotesk'; font-size: 1.8rem; font-weight: 700; color: #fff; letter-spacing: 2px; }  
-.logo span { color: var(--accent); }  
-.navbar a { color: var(--text-dim); margin-left: 2.5rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2
+    100% { transform: translate(0, 0) rotate(-45
