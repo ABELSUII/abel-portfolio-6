@@ -12,25 +12,54 @@ body { background: var(--bg); color: var(--text); overflow-x: hidden; }
   
 #particles-js { position: fixed; inset: 0; z-index: -1; }  
   
-/* Loader */  
-#loader { position: fixed; inset: 0; background: #000; z-index: 99999; display: flex; justify-content: center; align-items: center; transition: 0.8s ease; }  
-.loader-content h1 { font-size: 1.2rem; font-family: 'Space Grotesk'; color: var(--accent); letter-spacing: 10px; text-transform: uppercase; }  
+/* Loader & Overlays */
+#loader, #success-overlay { position: fixed; inset: 0; z-index: 99999; display: flex; justify-content: center; align-items: center; background: #000; }
+#success-overlay { background: rgba(5, 5, 7, 0.95); backdrop-filter: blur(10px); display: none; text-align: center; }
+.success-card i { font-size: 4rem; color: var(--accent); margin-bottom: 1rem; }
 
-/* Success Overlay */
-#success-overlay { position: fixed; inset: 0; background: rgba(5, 5, 7, 0.95); z-index: 10000; display: none; place-items: center; text-align: center; backdrop-filter: blur(10px); }
-.success-card i { font-size: 4rem; color: var(--accent); margin-bottom: 1.5rem; }
-.success-card h2 { font-family: 'Space Grotesk'; letter-spacing: 3px; margin-bottom: 1rem; color: #fff; }
-  
-/* Rocket Scroll Button */ 
-#progress { position: fixed; bottom: 30px; right: 30px; height: 60px; width: 60px; display: none; place-items: center; border-radius: 50%; z-index: 2000; cursor: pointer; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); padding: 4px; }  
-#progress-value { display: grid; place-items: center; height: 100%; width: 100%; background: var(--bg); border-radius: 50%; color: var(--accent); font-size: 1.4rem; }  
+/* The Rocket Scroll Button */ 
+#progress { position: fixed; bottom: 30px; right: 30px; height: 60px; width: 60px; display: none; place-items: center; border-radius: 50%; z-index: 2000; cursor: pointer; transition: 0.4s; padding: 4px; }  
+#progress-value { display: grid; place-items: center; height: 100%; width: 100%; background: var(--bg); border-radius: 50%; color: var(--accent); }  
+#progress-value i { transform: rotate(-45deg); font-size: 1.4rem; transition: 0.3s; }
 
-#progress:hover { transform: scale(1.1); box-shadow: 0 0 25px var(--accent); }
-#progress:hover i { animation: rocket-launch 0.3s infinite linear; color: #fff; text-shadow: 0 0 10px var(--accent); }
-
+/* Rocket Hover Animation */
+#progress:hover i { animation: rocket-launch 0.3s infinite linear; color: #fff; }
 @keyframes rocket-launch {
     0% { transform: translate(0, 0) rotate(-45deg); }
     25% { transform: translate(1px, -1px) rotate(-45deg); }
     50% { transform: translate(-1px, 1px) rotate(-45deg); }
-    75% { transform: translate(1px, 1px) rotate(-45deg); }
-    100% { transform: translate(0, 0) rotate(-45
+    100% { transform: translate(0, 0) rotate(-45deg); }
+}
+
+/* Header */  
+header { position: fixed; width: 100%; padding: 1.5rem 10%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; background: rgba(5, 5, 7, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border); }  
+.logo { font-family: 'Space Grotesk'; font-size: 1.8rem; font-weight: 700; color: #fff; letter-spacing: 2px; }  
+.logo span { color: var(--accent); }  
+.navbar a { color: var(--text-dim); margin-left: 2.5rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }  
+.navbar a:hover { color: var(--accent); }  
+  
+/* Sections */ 
+section { padding: 10rem 10% 5rem; max-width: 1400px; margin: 0 auto; }  
+.home { display: flex; align-items: center; justify-content: space-between; gap: 4rem; }  
+.home-content h1 { font-size: 4.5rem; font-family: 'Space Grotesk'; line-height: 1.1; margin-bottom: 1.5rem; }  
+.home-content span { color: var(--accent); }  
+  
+.main-img { width: 320px; border-radius: 10px; border: 1px solid var(--border); transition: 0.5s; }  
+.home-visual:hover .main-img { border-color: var(--accent); transform: translateY(-10px); }
+
+/* Forms */
+.contact-form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; }  
+.contact-form input, .contact-form textarea { padding: 1.2rem; background: #0a0a0c; border: 1px solid #222; color: #fff; border-radius: 4px; outline: none; width: 100%; } 
+.contact-form input:focus { border-color: var(--accent); }  
+  
+.btn-main { background: var(--accent); color: #000; padding: 1rem 2.5rem; border-radius: 4px; font-weight: 700; border: none; cursor: pointer; text-transform: uppercase; font-size: 0.8rem; display: inline-block; }
+
+footer { text-align: center; padding: 4rem; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--text-dim); }  
+
+/* Responsive Fixes */
+@media (max-width: 991px) {
+    header { padding: 1rem 5%; }
+    .navbar { display: none; }
+    .home { flex-direction: column-reverse; text-align: center; }
+    .home-content h1 { font-size: 3rem; }
+}
