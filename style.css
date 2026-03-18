@@ -13,14 +13,24 @@ body { background: var(--bg); color: var(--text); overflow-x: hidden; }
 #particles-js { position: fixed; inset: 0; z-index: -1; }  
   
 /* AI Loader */  
-#loader { position: fixed; inset: 0; background: #000; z-index: 99999; display: flex; justify-content: center; align-items: center; transition: 0.8s ease; pointer-events: none; }  
+#loader { position: fixed; inset: 0; background: #000; z-index: 99999; display: flex; justify-content: center; align-items: center; transition: 0.8s ease; }  
 .loader-content h1 { font-size: 1.2rem; font-family: 'Space Grotesk'; color: var(--accent); letter-spacing: 10px; text-transform: uppercase; }  
   
-/* Rocket Scroll */ 
-#progress { position: fixed; bottom: 30px; right: 30px; height: 60px; width: 60px; display: none; place-items: center; border-radius: 50%; z-index: 1000; cursor: pointer; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); padding: 4px; }  
+/* Rocket Scroll & Launch Animation */ 
+#progress { position: fixed; bottom: 30px; right: 30px; height: 60px; width: 60px; display: none; place-items: center; border-radius: 50%; z-index: 2000; cursor: pointer; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); padding: 4px; }  
 #progress-value { display: grid; place-items: center; height: 100%; width: 100%; background: var(--bg); border-radius: 50%; color: var(--accent); font-size: 1.4rem; }  
-#progress:hover { transform: scale(1.1); box-shadow: 0 0 20px var(--accent); }  
-  
+
+#progress:hover { transform: scale(1.1); box-shadow: 0 0 25px var(--accent); }
+#progress:hover i { animation: rocket-launch 0.3s infinite linear; color: #fff; text-shadow: 0 0 10px var(--accent); }
+
+@keyframes rocket-launch {
+    0% { transform: translate(0, 0) rotate(-45deg); }
+    25% { transform: translate(1px, -1px) rotate(-45deg); }
+    50% { transform: translate(-1px, 1px) rotate(-45deg); }
+    75% { transform: translate(1px, 1px) rotate(-45deg); }
+    100% { transform: translate(0, 0) rotate(-45deg); }
+}
+
 /* Header */  
 header { position: fixed; width: 100%; padding: 1.5rem 10%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; background: rgba(5, 5, 7, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border); }  
 .logo { font-family: 'Space Grotesk'; font-size: 1.8rem; font-weight: 700; color: #fff; letter-spacing: 2px; }  
@@ -77,13 +87,10 @@ footer { text-align: center; padding: 4rem; border-top: 1px solid var(--border);
     header { padding: 1.2rem 5%; }
     .home { flex-direction: column-reverse; text-align: center; gap: 3rem; }  
     .home-content h1 { font-size: 3rem; }  
-    .home-content p { max-width: 100%; margin: 0 auto 2.5rem; }
     .navbar { display: none; }  
-    
-    .cta-group { display: flex; flex-direction: column; gap: 1rem; align-items: center; }
+    .cta-group { display: flex; flex-direction: column; gap: 1rem; align-items: center; width: 100%; }
     .btn-outline { margin-left: 0; width: 100%; max-width: 320px; }
     .btn-main { width: 100%; max-width: 320px; }
-    
     .metric-card, .pro-card { width: 100%; max-width: 100%; }
 }  
 
